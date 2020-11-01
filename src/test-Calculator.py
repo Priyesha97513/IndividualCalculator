@@ -45,3 +45,10 @@ class MyTestCase(unittest.TestCase):
             result = float(row['Result'])
             self.assertAlmostEqual(self.calculator.squaresrt(row['Value 1']), result)
             self.assertAlmostEqual(self.calculator.result, result)
+
+    def test_exponent(self):
+        test_data = CsvReader("math-operator-csvdata/Exponent.csv").data
+        for row in test_data:
+            result = float(row['Result'])
+            self.assertEqual(self.calculator.exponents(row['Value1'], row['Value2']), result)
+            self.assertEqual(self.calculator.result, result)
