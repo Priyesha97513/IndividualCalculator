@@ -31,3 +31,10 @@ class MyTestCase(unittest.TestCase):
             result = float(row['Result'])
             self.assertEqual(self.calculator.multiplication(row['Value 1'], row['Value 2']), result)
             self.assertEqual(self.calculator.result, result)
+
+    def test_square(self):
+        test_data = CsvReader("math-operator-csvdata/Square.csv").data
+        for row in test_data:
+            result = float(row['Result'])
+            self.assertEqual(self.calculator.squares(row['Value 1']), result)
+            self.assertEqual(self.calculator.result, result)
