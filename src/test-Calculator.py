@@ -40,7 +40,7 @@ class MyTestCase(unittest.TestCase):
             self.assertEqual(self.calculator.result, result)
 
     def test_squarerts(self):
-        test_data = CsvReader("operationsCsv/SquareRoot.csv").data
+        test_data = CsvReader("math-operator-csvdata/SquareRoot.csv").data
         for row in test_data:
             result = float(row['Result'])
             self.assertAlmostEqual(self.calculator.squaresrt(row['Value 1']), result)
