@@ -53,15 +53,18 @@ class MyTestCase(unittest.TestCase):
             self.assertEqual(self.calculator.exponents(row['Value1'], row['Value2']), result)
             self.assertEqual(self.calculator.result, result)
 
-        def test_division(self):
-            test_data = CsvReader("math-operator-csvdata/Division.csv").data
-            for row in test_data:
-                result = float(row['Result'])
-                self.assertAlmostEqual(self.calculator.divisions(row['Value 1'], row['Value 2']), result)
-                self.assertAlmostEqual(self.calculator.result, result)
+    def test_division(self):
+        test_data = CsvReader("math-operator-csvdata/Division.csv").data
+        for row in test_data:
+            result = float(row['Result'])
+            self.assertAlmostEqual(self.calculator.divisions(row['Value 1'], row['Value 2']), result)
+            self.assertAlmostEqual(self.calculator.result, result)
 
-        def test_results_property(self):
-            self.assertEqual(self.calculator.result, 0)
 
-    if __name__ == '__main__':
-        unittest.main()
+
+    def test_results_property(self):
+        self.assertEqual(self.calculator.result, 0)
+
+
+if __name__ == '__main__':
+    unittest.main()
